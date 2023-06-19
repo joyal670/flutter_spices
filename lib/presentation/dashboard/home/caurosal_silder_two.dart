@@ -27,7 +27,7 @@ class _VerticalSubSliderState extends State<VerticalSubSlider> {
           borderRadius: BorderRadius.circular(15),
           child: FlutterCarousel(
             options: CarouselOptions(
-              height: 120.0,
+              height: 100.0,
               aspectRatio: 16 / 9,
               viewportFraction: 1.0,
               initialPage: 0,
@@ -115,16 +115,19 @@ class SubSliderItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const CircleAvatar(
-                radius: 20,
-                backgroundColor: colorParisDaisy,
-                child: Center(
-                  child: Text(
-                    '25%',
-                    style: TextStyle(color: colorBlack, fontSize: 16),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: colorParisDaisy,
+                  child: Center(
+                    child: Text(
+                      '25%',
+                      style: TextStyle(color: colorBlack, fontSize: 16),
+                    ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
           width15,
