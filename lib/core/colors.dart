@@ -10,3 +10,4 @@ const colorParisDaisy = Color(0xffFFEB61);
 const colorWildSand = Color(0xffF4F4F4);
 const colorDairyCream = Color(0xffF8F0B9);
 const colorDawnPink = Color(0xffEBEBEB);
+const colorOrange = Color.fromARGB(255, 233, 142, 14);

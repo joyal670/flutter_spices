@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:spices/core/dim.dart';
+import 'package:spices/presentation/dashboard/home/detailed_page/dot_screen.dart';
 
 import '../../../../core/colors.dart';
-import 'drop_down.dart';
+import '../main_categories.dart';
 
 class HomeDetailedScreen extends StatelessWidget {
   const HomeDetailedScreen({super.key});
@@ -34,6 +35,53 @@ class _CollapsingToolbarState extends State<CollapsingToolbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorWildSand,
+      bottomNavigationBar: SizedBox(
+        width: double.infinity,
+        height: 70,
+        child: Container(
+          decoration: const BoxDecoration(color: colorWhite),
+          child: Row(
+            children: [
+              width10,
+              Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                    color: colorDawnPink,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: TextButton(
+                      onPressed: () {},
+                      child: const Icon(
+                        Icons.favorite_outline,
+                        color: colorBlack,
+                      )),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+                  child: SizedBox(
+                    height: 50,
+                    child: ElevatedButton.icon(
+                        style: const ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll(colorBlack)),
+                        onPressed: () {},
+                        icon: const Icon(Icons.shopping_bag_outlined),
+                        label: const Text(
+                          'Add to Bag',
+                          style: TextStyle(
+                              color: colorWhite, fontWeight: FontWeight.bold),
+                        )),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
       body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxScrolled) {
             return <Widget>[
@@ -213,10 +261,11 @@ class _CollapsingToolbarState extends State<CollapsingToolbar> {
                 Wrap(children: [
                   Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                         color: colorDairyCream),
                     child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       child: Text(
                         "Special Price",
                         style: TextStyle(
@@ -227,9 +276,132 @@ class _CollapsingToolbarState extends State<CollapsingToolbar> {
                     ),
                   ),
                 ]),
+                height15,
+                Row(
+                  children: [
+                    const Text('\$8.99',
+                        style: TextStyle(
+                            fontSize: 20,
+                            decoration: TextDecoration.lineThrough,
+                            color: colorGrey)),
+                    width10,
+                    const Text('\$8.99',
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: colorBlack,
+                            fontWeight: FontWeight.bold)),
+                    width15,
+                    Wrap(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: colorDairyCream),
+                        child: const Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          child: Text(
+                            "25% Off",
+                            style: TextStyle(
+                                color: colorBlack,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14),
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ],
+                ),
+                height15,
+                const Text(
+                  'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters point here.',
+                  style: TextStyle(color: colorMineShaft),
+                ),
+                height25,
+                const Text(
+                  'Nutritional Facts',
+                  style: TextStyle(
+                      color: colorBlack,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                height10,
+                const DotScreen(),
+                height25,
+                const Text(
+                  'Benefits',
+                  style: TextStyle(
+                      color: colorBlack,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                height10,
+                const DotScreen(),
+                height15,
+                DotWidgets(),
+                height25,
+                const Text(
+                  'Releated products',
+                  style: TextStyle(
+                      color: colorBlack,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold),
+                ),
+                const HomeCategoryScreen(),
               ],
             ),
           )),
+    );
+  }
+
+  SizedBox DotWidgets() {
+    return SizedBox(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: colorWhite,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              children: [
+                Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLPUpmIyvjxxjAFeAglMmfvuBR44vmY4xAQA&usqp=CAU',
+                  width: 70,
+                  height: 70,
+                ),
+                const Text(
+                  '100% Organic',
+                  style: TextStyle(
+                      color: colorOrange, fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 50,
+              child: VerticalDivider(
+                color: colorGrey,
+                thickness: 1.5,
+              ),
+            ),
+            Column(
+              children: [
+                Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkD1Flrx227ipM_gPa9cGlFPZ-F-KLZlioww&usqp=CAU',
+                  width: 70,
+                  height: 70,
+                ),
+                const Text(
+                  'Quality checked',
+                  style: TextStyle(
+                      color: colorOrange, fontWeight: FontWeight.bold),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
