@@ -134,13 +134,38 @@ class _CollapsingToolbarState extends State<CollapsingToolbar> {
             child: ListView(
               children: [
                 const Text(
-                  'Cloves',
+                  'Cloves / 100g -RS.155',
                   style: TextStyle(
                       color: colorBlack,
                       fontSize: 22,
                       fontWeight: FontWeight.bold),
                 ),
-                height30,
+                height15,
+                Wrap(children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(7),
+                        color: colorDairyCream),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 8),
+                      child: Row(
+                        children: [
+                          Icon(Icons.bubble_chart),
+                          width10,
+                          const Text(
+                            "You save 40 on this order",
+                            style: TextStyle(
+                                color: colorBlack,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ]),
+                height15,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
