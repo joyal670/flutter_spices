@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spices/core/dim.dart';
+import 'package:spices/presentation/dashboard/home/checkout/checkout.dart';
 import 'package:spices/presentation/dashboard/home/detailed_page/dot_screen.dart';
 
 import '../../../../core/colors.dart';
@@ -68,7 +69,12 @@ class _CollapsingToolbarState extends State<CollapsingToolbar> {
                         style: const ButtonStyle(
                             backgroundColor:
                                 MaterialStatePropertyAll(colorBlack)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const CheckoutScreen();
+                          }));
+                        },
                         icon: const Icon(Icons.shopping_bag_outlined),
                         label: const Text(
                           'Add to Bag',
