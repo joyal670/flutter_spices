@@ -8,6 +8,10 @@ const width15 = SizedBox(
   width: 15,
 );
 
+const width20 = SizedBox(
+  width: 20,
+);
+
 const height10 = SizedBox(
   height: 10,
 );

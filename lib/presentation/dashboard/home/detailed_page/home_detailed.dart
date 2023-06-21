@@ -146,14 +146,14 @@ class _CollapsingToolbarState extends State<CollapsingToolbar> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(7),
                         color: colorDairyCream),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 8),
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       child: Row(
                         children: [
                           Icon(Icons.bubble_chart),
                           width10,
-                          const Text(
+                          Text(
                             "You save 40 on this order",
                             style: TextStyle(
                                 color: colorBlack,
