@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spices/core/colors.dart';
 import 'package:read_more_text/read_more_text.dart';
+import 'package:spices/presentation/dashboard/home/cart/cart.dart';
 
 import '../../../../core/dim.dart';
 import '../../wishlist/wishlist_item.dart';
@@ -26,7 +27,7 @@ class CheckoutScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return const CheckoutScreen();
+                    return const MyCartScreen();
                   }));
                 },
                 icon: const Icon(Icons.arrow_forward),
