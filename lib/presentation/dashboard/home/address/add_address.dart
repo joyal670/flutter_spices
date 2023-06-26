@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spices/presentation/dashboard/home/address/address_listing.dart';
 
 import '../../../../core/colors.dart';
 import '../../../../core/dim.dart';
@@ -29,14 +30,15 @@ class AddAddressScreen extends StatelessWidget {
                   const Text(
                     'Billing Address is same as Shipping Address',
                     style: TextStyle(
-                        color: colorBlack,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
+                      color: colorGrey,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
             ),
             Container(
+              width: double.infinity,
               padding: EdgeInsets.all(10),
               decoration: const BoxDecoration(color: colorWhite),
               child: SizedBox(
@@ -45,9 +47,10 @@ class AddAddressScreen extends StatelessWidget {
                     style: const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(colorBlack)),
                     onPressed: () {
+                      Navigator.of(context).pop();
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
-                        return const MyCartScreen();
+                        return const AddressListingScreen();
                       }));
                     },
                     icon: const Icon(Icons.arrow_forward),

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:spices/presentation/dashboard/home/address/add_address.dart';
-import 'package:spices/presentation/dashboard/home/address/address_item.dart';
-import 'package:spices/presentation/dashboard/home/address/address_listing.dart';
 
 import '../../../../core/colors.dart';
 import '../../../../core/dim.dart';
+import '../cart/cart.dart';
 import '../checkout/final_checkout.dart';
+import 'address_item.dart';
 
-class MyCartScreen extends StatelessWidget {
-  const MyCartScreen({super.key});
+class AddressListingScreen extends StatelessWidget {
+  const AddressListingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +50,7 @@ class MyCartScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
-                        return const AddressListingScreen();
+                        return const FinalCheckoutScreen();
                       }));
                     },
                     icon: const Icon(Icons.arrow_forward),
@@ -70,7 +69,7 @@ class MyCartScreen extends StatelessWidget {
         iconTheme: const IconThemeData(color: colorBlack),
         backgroundColor: colorWildSand,
         title: const Text(
-          'Cart (3 Items)',
+          'Delivery Address',
           style: TextStyle(color: colorBlack, fontWeight: FontWeight.bold),
         ),
         actions: const [
@@ -88,58 +87,48 @@ class MyCartScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: colorWhite,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Wrap(children: [
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: colorWhite, borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'SELECT SHIPPING ADDRESS',
-                    style: TextStyle(
-                        color: colorGrey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Deliver to:',
+                        style: TextStyle(
+                            color: colorGrey, fontWeight: FontWeight.bold),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          'CHANGE',
+                          style: TextStyle(
+                              color: colorBlack,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17),
+                        ),
+                      ),
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return const AddAddressScreen();
-                      }));
-                    },
-                    child: const Text(
-                      'ADD NEW',
-                      style: TextStyle(
-                          color: colorBlack,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                    ),
+                  Divider(
+                    thickness: 2,
                   ),
+                  AddressItem()
                 ],
               ),
             ),
-            height30,
-            ListView.separated(
-                padding: EdgeInsets.all(10),
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return AddressItem();
-                },
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: 15,
-                  );
-                },
-                itemCount: 2)
-          ],
-        ),
+          ),
+        ]),
       ),
     );
   }
